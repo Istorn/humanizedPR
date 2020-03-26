@@ -1,5 +1,5 @@
 import React from 'react';
-import NumOfBallsPerBucket from '../utils/calculus';
+import Calculus from '../utils/calculus';
 
 //Bucket component
 class BucketDisplay extends React.Component{
@@ -7,7 +7,9 @@ class BucketDisplay extends React.Component{
     
     constructor (props){
         super(props);
-        this.state = {bucketNumber: props.bucketNumber, numberOfBalls: NumOfBallsPerBucket(props.bucketNumber,this.props.probabilities,this.props.totalNumOfBalls), rowNumber: this.props.rowNumber}
+
+        //Initialize the state with number of the bucket, number of ball inside of the bucket and number of the bucket's row 
+        this.state = {bucketNumber: props.bucketNumber, numberOfBalls: Calculus.NumOfBallsPerBucket(props.bucketNumber,this.props.probabilities,this.props.totalNumOfBalls), rowNumber: this.props.rowNumber}
     }
     
 
@@ -19,9 +21,9 @@ class BucketDisplay extends React.Component{
 
     render(){
         return(
-            <div className="column bucket" onClick={this.bucketClick}>
-                 {this.state.numberOfBalls}
-               <i className="bitbucket icon"></i>
+            <div className="column bucket" onClick={this.bucketClick} >
+                 {this.state.numberOfBalls} Balls
+                
             </div>
         );
     }

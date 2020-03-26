@@ -2,9 +2,13 @@ import React from 'react';
 import BucketDisplay from './BucketDisplay';
 
 
+
+//Component to generate a row of buckets
+
 class RowBucketDisplay extends React.Component{
 
     state= {rowNumber: 0,probabilities: 0};
+
     constructor(props){
         super(props);
         this.state={rowNumber: this.props.rowNumber,probabilities: this.props.probabilities};
@@ -15,6 +19,8 @@ class RowBucketDisplay extends React.Component{
         
         this.props.generateRowAfter(bucketClicked);
     }
+
+    //Render the row with 10 buckets
     render(){
         const bucketsJSX = [];
         for (let i=0;i<10;i++){
